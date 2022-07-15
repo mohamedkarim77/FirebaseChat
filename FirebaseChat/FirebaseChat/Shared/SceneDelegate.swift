@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        // let customerId = UserDefaults.standard.string(forKey: Constants.CUSTOMER_ID)
        // let controller = (customerId == "" || customerId == nil) ? navigation : mainTabBarVC
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = loginVC
+        window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
 
