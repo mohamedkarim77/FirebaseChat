@@ -14,11 +14,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-        
+      
+    private let presenter = LoginPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        presenter.delegate = self
     }
     
     func setupUI() {
@@ -42,13 +44,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        FirebaseAuth.Auth.auth().signIn(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] authResult, error in
-            guard let self = self else { return }
-            guard let result = authResult, error == nil else {
-                print("Failed to login: \(error)")
-                return}
-            let user = result.user
-            print("Succeful login: \(user)")
-        }
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        presenter.login(email: email, password: password)
+}
+}
+
+extension LoginViewController: LoginPresenterProtocol {
+    func loginSuccess() {
+        
     }
+    
+    func loginFailure(error: Error) {
+        
+    }
+    
+    
 }

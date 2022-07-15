@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="FirebaseChat" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextField" destination="Grl-pZ-H2b" id="dSm-aO-ocO"/>
+                <outlet property="firstNameTextField" destination="t4f-P7-bJA" id="wHS-us-mwl"/>
+                <outlet property="imageView" destination="UwX-ek-Qcx" id="v1J-hO-3VE"/>
+                <outlet property="lastNameTextField" destination="Uik-C8-tjx" id="XFc-4Z-ecY"/>
+                <outlet property="passwordTextField" destination="0Ct-JC-lJH" id="Knq-Rx-bEV"/>
+                <outlet property="registerButton" destination="lEN-NV-NjE" id="ffI-fw-BWs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-ek-Qcx">
+                    <rect key="frame" x="138.5" y="124" width="137" height="136.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UwX-ek-Qcx" secondAttribute="height" multiplier="1:1" id="8Pm-ug-6xS"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="e1F-me-NIS">
+                    <rect key="frame" x="20" y="340.5" width="374" height="330"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4f-P7-bJA">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="SBw-N6-piW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uik-C8-tjx">
+                            <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Grl-pZ-H2b">
+                            <rect key="frame" x="0.0" y="140" width="374" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-JC-lJH">
+                            <rect key="frame" x="0.0" y="210" width="374" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEN-NV-NjE">
+                            <rect key="frame" x="0.0" y="280" width="374" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Register"/>
+                            <connections>
+                                <action selector="registerButtonPressed:" destination="-1" eventType="touchUpInside" id="xzt-Zx-4dt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="e1F-me-NIS" firstAttribute="top" secondItem="UwX-ek-Qcx" secondAttribute="bottom" constant="80" id="37W-AY-0Ba"/>
+                <constraint firstItem="UwX-ek-Qcx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.33" id="6Kz-Q8-Cho"/>
+                <constraint firstItem="UwX-ek-Qcx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="AZN-pA-pKO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e1F-me-NIS" secondAttribute="trailing" constant="20" id="Sf3-9x-NgH"/>
+                <constraint firstItem="e1F-me-NIS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="auU-tg-eKf"/>
+                <constraint firstItem="UwX-ek-Qcx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hHG-Mp-5bY"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="79"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
