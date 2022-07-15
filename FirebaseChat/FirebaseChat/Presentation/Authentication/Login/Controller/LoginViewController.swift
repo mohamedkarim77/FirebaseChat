@@ -44,10 +44,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        guard let email = emailTextField.text , !email.isEmpty else {
+            showAuthAlert()
+            return
+        }
+        guard let password = passwordTextField.text , !password.isEmpty else {
+            showAuthAlert()
+            return
+        }
         presenter.login(email: email, password: password)
 }
+    
+    
 }
 
 extension LoginViewController: LoginPresenterProtocol {

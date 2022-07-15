@@ -26,9 +26,16 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        guard let email = emailTextField.text , !email.isEmpty else {
+            showAuthAlert()
+            return
+        }
+        guard let password = passwordTextField.text , !password.isEmpty , password.count < 6 else {
+            showAuthAlert()
+            return
+        }
         presenter.register(email: email, password: password)
+        
     }
     
     func setupUI() {

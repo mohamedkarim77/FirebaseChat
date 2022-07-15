@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol LoginPresenterProtocol: AnyObject {
     func loginSuccess()
@@ -17,8 +18,14 @@ class LoginPresenter {
     weak var delegate: LoginPresenterProtocol?
     
     func login(email: String, password: String) {
-        let service = AuthService()
-        service.login(email: email, password: password)
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            guard let result = authResult, error == nil else {
+                print("Failed to login: \(String(describing: error))")
+                return}
+            let user = result.user
+            print("Succeful login: \(user)")
+        }
     }
     
 }

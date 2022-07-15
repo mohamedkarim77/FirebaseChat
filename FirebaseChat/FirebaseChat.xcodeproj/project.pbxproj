@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8A6A9A192881884300050FA9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A182881884300050FA9 /* AuthService.swift */; };
+		8A6A9A1C2881A32A00050FA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A1A2881A32A00050FA9 /* ProfileViewController.swift */; };
+		8A6A9A1D2881A32A00050FA9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A9A1B2881A32A00050FA9 /* ProfileViewController.xib */; };
+		8A6A9A242881A44000050FA9 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A222881A44000050FA9 /* ChatsViewController.swift */; };
+		8A6A9A252881A44000050FA9 /* ChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A9A232881A44000050FA9 /* ChatsViewController.xib */; };
+		8A6A9A282881A4EE00050FA9 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A272881A4EE00050FA9 /* MainTabBar.swift */; };
+		8A6A9A2A2881AF6700050FA9 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A292881AF6700050FA9 /* ViewController+Extension.swift */; };
+		8A6A9A2C2881BAE600050FA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A2B2881BAE600050FA9 /* User.swift */; };
 		8A82C5902880237300847DD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C58F2880237300847DD2 /* AppDelegate.swift */; };
 		8A82C5922880237300847DD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C5912880237300847DD2 /* SceneDelegate.swift */; };
 		8A82C59A2880237300847DD2 /* FirebaseChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C5982880237300847DD2 /* FirebaseChat.xcdatamodeld */; };
@@ -74,6 +81,13 @@
 
 /* Begin PBXFileReference section */
 		8A6A9A182881884300050FA9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8A6A9A1A2881A32A00050FA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8A6A9A1B2881A32A00050FA9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		8A6A9A222881A44000050FA9 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		8A6A9A232881A44000050FA9 /* ChatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsViewController.xib; sourceTree = "<group>"; };
+		8A6A9A272881A4EE00050FA9 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		8A6A9A292881AF6700050FA9 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		8A6A9A2B2881BAE600050FA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A82C58C2880237300847DD2 /* FirebaseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A82C58F2880237300847DD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A82C5912880237300847DD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A6A9A262881A46E00050FA9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8A6A9A272881A4EE00050FA9 /* MainTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		8A82C5832880237300847DD2 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +232,7 @@
 		8A82C5C3288024E400847DD2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8A6A9A262881A46E00050FA9 /* TabBar */,
 				8A82C5D428802BFD00847DD2 /* Chat */,
 				8A82C5D328802BE400847DD2 /* Profile */,
 				8A82C5C6288026E300847DD2 /* Authentication */,
@@ -220,6 +243,7 @@
 		8A82C5C4288024E700847DD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A6A9A2B2881BAE600050FA9 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,19 +347,19 @@
 		8A82C5D428802BFD00847DD2 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				8A82C5D528802C2200847DD2 /* Conversations */,
+				8A82C5D528802C2200847DD2 /* Chats */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		8A82C5D528802C2200847DD2 /* Conversations */ = {
+		8A82C5D528802C2200847DD2 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
 				8A82C5DB28802C4900847DD2 /* Controller */,
 				8A82C5DA28802C4600847DD2 /* View */,
 				8A82C5D928802C4400847DD2 /* Presenter */,
 			);
-			path = Conversations;
+			path = Chats;
 			sourceTree = "<group>";
 		};
 		8A82C5D628802C3A00847DD2 /* Presenter */ = {
@@ -355,6 +379,8 @@
 		8A82C5D828802C3E00847DD2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8A6A9A1A2881A32A00050FA9 /* ProfileViewController.swift */,
+				8A6A9A1B2881A32A00050FA9 /* ProfileViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -376,6 +402,8 @@
 		8A82C5DB28802C4900847DD2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8A6A9A222881A44000050FA9 /* ChatsViewController.swift */,
+				8A6A9A232881A44000050FA9 /* ChatsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,6 +437,7 @@
 				8A82C60228807B9500847DD2 /* UIView+Extension.swift */,
 				8A82C60628807C8E00847DD2 /* UITextField+Extension.swift */,
 				8A82C60828807CF700847DD2 /* UIButton+Extension.swift */,
+				8A6A9A292881AF6700050FA9 /* ViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,7 +568,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6A9A1D2881A32A00050FA9 /* ProfileViewController.xib in Resources */,
 				8A82C59F2880237500847DD2 /* LaunchScreen.storyboard in Resources */,
+				8A6A9A252881A44000050FA9 /* ChatsViewController.xib in Resources */,
 				8A82C59C2880237500847DD2 /* Assets.xcassets in Resources */,
 				8A82C61A288152DD00847DD2 /* GoogleService-Info.plist in Resources */,
 				8A82C5CF2880275200847DD2 /* LoginViewController.xib in Resources */,
@@ -572,13 +603,18 @@
 			files = (
 				8A82C60728807C8E00847DD2 /* UITextField+Extension.swift in Sources */,
 				8A82C5E128802CF900847DD2 /* ApiLogger.swift in Sources */,
+				8A6A9A1C2881A32A00050FA9 /* ProfileViewController.swift in Sources */,
 				8A82C5CE2880275200847DD2 /* LoginViewController.swift in Sources */,
+				8A6A9A282881A4EE00050FA9 /* MainTabBar.swift in Sources */,
+				8A6A9A242881A44000050FA9 /* ChatsViewController.swift in Sources */,
 				8A82C5F0288032F200847DD2 /* UICollectionView+Extensions.swift in Sources */,
 				8A82C5DF28802CE200847DD2 /* ApiService.swift in Sources */,
 				8A82C60928807CF700847DD2 /* UIButton+Extension.swift in Sources */,
 				8A82C5902880237300847DD2 /* AppDelegate.swift in Sources */,
 				8A82C5E528802D3200847DD2 /* Connectivity.swift in Sources */,
+				8A6A9A2A2881AF6700050FA9 /* ViewController+Extension.swift in Sources */,
 				8A82C5F42880333E00847DD2 /* UIImageView+Extensions.swift in Sources */,
+				8A6A9A2C2881BAE600050FA9 /* User.swift in Sources */,
 				8A82C61E2881695C00847DD2 /* LoginPresenter.swift in Sources */,
 				8A82C59A2880237300847DD2 /* FirebaseChat.xcdatamodeld in Sources */,
 				8A82C60328807B9500847DD2 /* UIView+Extension.swift in Sources */,

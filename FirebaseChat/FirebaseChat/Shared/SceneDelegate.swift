@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,11 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configureAppStart(scene: UIWindowScene) {
         let loginVC = LoginViewController()
         let navigation = UINavigationController(rootViewController: loginVC)
-       // let mainTabBarVC = MainTabBarViewController()
-       // let customerId = UserDefaults.standard.string(forKey: Constants.CUSTOMER_ID)
-       // let controller = (customerId == "" || customerId == nil) ? navigation : mainTabBarVC
+        let mainTabBarVC = MainTabBarController()
+        let controller = FirebaseAuth.Auth.auth().currentUser == nil ? navigation : mainTabBarVC
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = navigation
+        window?.rootViewController = controller
         window?.makeKeyAndVisible()
     }
 
