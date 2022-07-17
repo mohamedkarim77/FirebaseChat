@@ -53,6 +53,9 @@ class LoginViewController: UIViewController {
             return
         }
         presenter.login(email: email, password: password)
+        let vc = MainTabBarController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
 }
     
     

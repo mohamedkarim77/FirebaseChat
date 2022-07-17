@@ -16,12 +16,13 @@ class MainTabBarController: UITabBarController {
     }
     
     func setupTabBar() {
-        let chatVC = ChatsViewController()
-        chatVC.tabBarItem = UITabBarItem(title: "Chats", image: UIImage(systemName: "message"), tag: 0)
+        let chat = ChatsViewController()
+        chat.tabBarItem = UITabBarItem(title: "Chats", image: UIImage(systemName: "message"), tag: 0)
+        let chatNavigation = UINavigationController(rootViewController: chat)
         
-        let profileVC = ProfileViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
-        
-        viewControllers = [chatVC, profileVC]
+        let profile = ProfileViewController()
+        profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
+        let profileNavigation = UINavigationController(rootViewController: profile)
+        viewControllers = [chatNavigation, profileNavigation]
     }
 }
