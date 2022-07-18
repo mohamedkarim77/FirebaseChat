@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-      
+    
     private let presenter = LoginPresenter()
     
     override func viewDidLoad() {
@@ -44,31 +44,29 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        guard let email = emailTextField.text , !email.isEmpty else {
-            showAuthAlert()
+        
+        guard let email = emailTextField.text ,
+              let password = passwordTextField.text ,
+                !email.isEmpty ,!password.isEmpty else {
+            showAuthAlert(message: "Please Fill All Fields")
             return
         }
-        guard let password = passwordTextField.text , !password.isEmpty else {
-            showAuthAlert()
-            return
-        }
+        startSpinner()
         presenter.login(email: email, password: password)
         let vc = MainTabBarController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
-}
-    
+    }
     
 }
 
 extension LoginViewController: LoginPresenterProtocol {
     func loginSuccess() {
-        
+        stopSpinner()
     }
     
     func loginFailure(error: Error) {
-        
+        stopSpinner()
     }
-    
     
 }

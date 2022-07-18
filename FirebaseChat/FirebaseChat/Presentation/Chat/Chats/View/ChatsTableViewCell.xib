@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="339" height="122"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9qB-vn-gzC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9qB-vn-gzC">
                         <rect key="frame" x="8" y="8" width="106" height="106"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="9qB-vn-gzC" secondAttribute="height" multiplier="1:1" id="H9N-tR-0TW"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="151.44927536231884" y="84.375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="logo" width="512" height="512"/>
+    </resources>
 </document>

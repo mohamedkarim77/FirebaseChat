@@ -19,17 +19,15 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    let presenter = ProfilePresenter()
+    private var presenter = ProfilePresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.delegate = self
+        startSpinner()
+        presenter.getUser()
         title = "Profile"
     }
-
-}
-
-extension ProfileViewController: ProfilePresenterProtocol {
     
 }
 
@@ -64,7 +62,7 @@ extension ProfileViewController: UITableViewDataSource {
             return UITableViewCell()
         case 1,2:
             if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.userDataCellID, for: indexPath) as? UserDataTableViewCell {
-                
+                cell.userEmail =  presenter.userEmail ?? "xxxx"
                 return cell
             }
             return UITableViewCell()
@@ -83,18 +81,18 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func goToLogin() {
-        
         let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         let ok = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
             do {
                 try FirebaseAuth.Auth.auth().signOut()
                 let scene = self?.view.window?.windowScene?.delegate as? SceneDelegate
-                scene?.window?.rootViewController = LoginViewController()
+                let loginVC = LoginViewController()
+                let navigation = UINavigationController(rootViewController: loginVC)
+                scene?.window?.rootViewController = navigation
             } catch  {
                 print("Failed to log out")
             }
-          
         }
         alert.addAction(ok)
         alert.addAction(cancel)
@@ -102,3 +100,17 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
 }
+
+extension ProfileViewController: ProfilePresenterProtocol {
+    
+    func success() {
+        stopSpinner()
+        userTableView.reloadData()
+    }
+    
+    func failure() {
+        stopSpinner()
+    }
+    
+}
+

@@ -15,7 +15,7 @@ class ChatsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        userImageView.addCircleCornerRadius()
     }
     
 }

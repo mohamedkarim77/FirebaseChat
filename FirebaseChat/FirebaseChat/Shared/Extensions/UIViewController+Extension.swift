@@ -6,14 +6,21 @@
 //
 
 import UIKit
-
+import ARSLineProgress
 extension UIViewController {
-    
-    func showAuthAlert() {
-        let alert = UIAlertController(title: "Error", message: "Please fill all Data", preferredStyle: .alert)
+    func showAuthAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true)
+    }
+    
+    func startSpinner() {
+        ARSLineProgress.show()
+    }
+    
+    func stopSpinner() {
+        ARSLineProgress.hide()
     }
 
 }

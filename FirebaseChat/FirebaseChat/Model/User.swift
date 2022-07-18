@@ -8,20 +8,28 @@
 import Foundation
 
 // MARK: - User
-struct User: Decodable {
-    let email: String?
-    let firstName: String?
-    let lastName: String?
-    let phone: String?
-    let id: Int?
+struct User {
+    let email: String
+    let firstName: String
+    let lastName: String
 
-    
-    
-    enum CodingKeys: String, CodingKey {
-        case email
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case phone
-        case id
+    var safeEmail: String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
     }
+    
+    var profileImageFileName: String {
+        let image = "\(safeEmail)_profile_image.png"
+        print(image)
+        return image
+    }
+
+//    enum CodingKeys: String, CodingKey {
+//        case email
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case phone
+//        case id
+//    }
 }

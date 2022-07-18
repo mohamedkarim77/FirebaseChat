@@ -22,8 +22,10 @@ class LoginPresenter {
             guard let self = self else { return }
             guard let result = authResult, error == nil else {
                 print("Failed to login: \(String(describing: error))")
+                self.delegate?.loginFailure(error: error!)
                 return}
             let user = result.user
+            self.delegate?.loginSuccess()
             print("Succeful login: \(user)")
         }
     }

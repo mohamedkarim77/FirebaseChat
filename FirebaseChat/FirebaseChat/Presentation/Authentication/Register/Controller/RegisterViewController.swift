@@ -26,16 +26,26 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        guard let email = emailTextField.text , !email.isEmpty else {
-            showAuthAlert()
-            return
-        }
-        guard let password = passwordTextField.text , !password.isEmpty , password.count < 6 else {
-            showAuthAlert()
-            return
-        }
-        presenter.register(email: email, password: password)
         
+        guard let firstName = firstNameTextField.text,
+              let lastName = lastNameTextField.text,
+              let email = emailTextField.text ,
+              let password = passwordTextField.text,
+              let image = imageView.image,
+              !firstName.isEmpty,
+              !lastName.isEmpty,
+              !email.isEmpty,
+              !password.isEmpty,
+              password.count >= 6
+        else {
+            showAuthAlert(message: "Please Fill All Fields")
+            return
+        }
+        startSpinner()
+        presenter.register(firstName: firstName, lastName: lastName, email: email, password: password, profileImage: image)
+        let vc = MainTabBarController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     func setupUI() {
@@ -46,13 +56,12 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         passwordTextField.setupTextField()
         registerButton.setupButton(title: "Register")
         imageView.addCircleCornerRadius()
-        imageView.image = UIImage(named: "person")
+        imageView.image = UIImage(named: "sukkar")
         let tap = UITapGestureRecognizer(target: self, action: #selector(addImage))
         imageView.addGestureRecognizer(tap)
-        
     }
     
-    @objc private func addImage(){
+    @objc private func addImage() {
         presentPhotoActionSheet()
     }
     
@@ -111,12 +120,16 @@ extension RegisterViewController: UIImagePickerControllerDelegate {
 }
 
 extension RegisterViewController: RegisterPresenterProtocol {
+    func registerExists() {
+        showAuthAlert(message: "User Email Already Exists")
+    }
+    
     func registerFailure(error: Error) {
-        
+        stopSpinner()
     }
     
     func registerSuccess() {
-        
+        stopSpinner()
     }
     
 }

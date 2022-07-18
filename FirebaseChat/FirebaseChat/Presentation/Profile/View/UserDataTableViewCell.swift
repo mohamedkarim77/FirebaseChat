@@ -9,8 +9,13 @@ import UIKit
 
 class UserDataTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var userDataLabel: UILabel!
-    
+    @IBOutlet weak var userDataLabel: UILabel!{
+        didSet{
+            userDataLabel.text = userEmail
+    }
+        
+    }
+    var userEmail = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
