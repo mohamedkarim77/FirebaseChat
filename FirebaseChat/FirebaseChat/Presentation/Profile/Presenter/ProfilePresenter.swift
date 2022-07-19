@@ -20,13 +20,16 @@ class ProfilePresenter {
     let userDataCellID = "UserDataTableViewCell"
     let logoutCellID = "LogOutTableViewCell"
     var userEmail: String?
+    var profileImageUrl: String?
     
     func getUser(){
-        guard let  userEmail = FirebaseAuth.Auth.auth().currentUser?.email, !userEmail.isEmpty else {
+        guard let  userEmail = FirebaseAuth.Auth.auth().currentUser?.email,
+              !userEmail.isEmpty, let profileImageUrl = UserDefaults.standard.string(forKey: "PROFILE_IMAGE_URL") else {
             print(self.userEmail ?? "eeeeeeee")
             delegate?.failure()
             return
         }
+        self.profileImageUrl = profileImageUrl
         self.userEmail = userEmail
         print(self.userEmail ?? "sssss")
         delegate?.success()

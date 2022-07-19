@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		193BDBB3F0414972353B5920 /* Pods_FirebaseChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CABBF806E488F15C3CC3E36 /* Pods_FirebaseChatTests.framework */; };
 		223F75060A027BE3108CCF71 /* Pods_FirebaseChat_FirebaseChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCCEEE5DEED9BC2522D8871 /* Pods_FirebaseChat_FirebaseChatUITests.framework */; };
+		8A014B972887218700CB5C3A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A014B962887218600CB5C3A /* Message.swift */; };
 		8A6A9A192881884300050FA9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A182881884300050FA9 /* AuthService.swift */; };
 		8A6A9A1C2881A32A00050FA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A9A1A2881A32A00050FA9 /* ProfileViewController.swift */; };
 		8A6A9A1D2881A32A00050FA9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A9A1B2881A32A00050FA9 /* ProfileViewController.xib */; };
@@ -102,6 +103,7 @@
 		10497C9BDA524744E88E97D3 /* Pods-FirebaseChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseChat.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseChat/Pods-FirebaseChat.debug.xcconfig"; sourceTree = "<group>"; };
 		3CABBF806E488F15C3CC3E36 /* Pods_FirebaseChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4390B7B4E7C651C18E224A47 /* Pods-FirebaseChat-FirebaseChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseChat-FirebaseChatUITests.release.xcconfig"; path = "Target Support Files/Pods-FirebaseChat-FirebaseChatUITests/Pods-FirebaseChat-FirebaseChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8A014B962887218600CB5C3A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8A6A9A182881884300050FA9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8A6A9A1A2881A32A00050FA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8A6A9A1B2881A32A00050FA9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6A9A2B2881BAE600050FA9 /* User.swift */,
+				8A014B962887218600CB5C3A /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				8A82C5F0288032F200847DD2 /* UICollectionView+Extensions.swift in Sources */,
 				8A6A9A4C2881F9AF00050FA9 /* ProfilePresenter.swift in Sources */,
 				8A82C5DF28802CE200847DD2 /* ApiService.swift in Sources */,
+				8A014B972887218700CB5C3A /* Message.swift in Sources */,
 				8A82C60928807CF700847DD2 /* UIButton+Extension.swift in Sources */,
 				8A82C5902880237300847DD2 /* AppDelegate.swift in Sources */,
 				8A82C5E528802D3200847DD2 /* Connectivity.swift in Sources */,

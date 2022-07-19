@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-FirebaseChat-FirebaseChatUITests/Pods-FirebaseChat-FirebaseChatUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ARSLineProgress/ARSLineProgress.framework
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework

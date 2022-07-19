@@ -26,7 +26,13 @@ class ProfileViewController: UIViewController {
         presenter.delegate = self
         startSpinner()
         presenter.getUser()
+        
         title = "Profile"
+    }
+    
+    func getImage(imageView: UIImageView){
+        guard let url = UserDefaults.standard.string(forKey: "PROFILE_IMAGE_URL") else { return }
+        imageView.loadImage(url)
     }
     
 }
@@ -104,6 +110,7 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: ProfilePresenterProtocol {
     
     func success() {
+        
         stopSpinner()
         userTableView.reloadData()
     }
