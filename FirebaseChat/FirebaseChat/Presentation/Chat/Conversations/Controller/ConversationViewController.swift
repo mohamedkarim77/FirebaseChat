@@ -41,23 +41,3 @@ extension ConversationViewController: MessagesLayoutDelegate, MessagesDataSource
     
     
 }
-
-//extension ConversationViewController: UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 6
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        return UICollectionViewCell()
-//    }
-//
-//}
-//
-//extension ConversationViewController: UICollectionViewDelegate {
-//
-//}
-//
-//extension ConversationViewController: UICollectionViewDelegateFlowLayout {
-//
-//}

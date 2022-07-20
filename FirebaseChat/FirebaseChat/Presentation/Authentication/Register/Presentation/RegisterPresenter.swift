@@ -57,6 +57,7 @@ class RegisterPresenter {
                     
                 })
                 print("Registered User: \(String(describing: user))")
+                UserDefaults.standard.setValue(email, forKey: "EMAIL")
                 self.delegate?.registerSuccess()
             }
         }

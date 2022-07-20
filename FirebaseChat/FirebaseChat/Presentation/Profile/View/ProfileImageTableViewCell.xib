@@ -18,9 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cax-5v-0GA">
-                        <rect key="frame" x="109" y="52.5" width="107" height="107"/>
+                        <rect key="frame" x="87.5" y="31" width="150" height="150"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="cax-5v-0GA" secondAttribute="height" multiplier="1:1" id="Vk8-rd-d3o"/>
+                            <constraint firstAttribute="width" constant="150" id="kw9-4n-wr4"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -28,7 +29,6 @@
                 <constraints>
                     <constraint firstItem="cax-5v-0GA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="T5U-1y-7W4"/>
                     <constraint firstItem="cax-5v-0GA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Vtd-Am-i12"/>
-                    <constraint firstItem="cax-5v-0GA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.33" id="ixa-ly-f4L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

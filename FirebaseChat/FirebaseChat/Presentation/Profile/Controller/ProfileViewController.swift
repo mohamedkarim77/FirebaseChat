@@ -25,14 +25,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         presenter.delegate = self
         startSpinner()
-        presenter.getUser()
-        
+        presenter.getImage()
         title = "Profile"
-    }
-    
-    func getImage(imageView: UIImageView){
-        guard let url = UserDefaults.standard.string(forKey: "PROFILE_IMAGE_URL") else { return }
-        imageView.loadImage(url)
     }
     
 }
@@ -62,7 +56,8 @@ extension ProfileViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.profileImageCellID, for: indexPath) as? ProfileImageTableViewCell {
-                
+                 let image = UIImage(data: presenter.profileImageData)
+                cell.profileImageView.image = image
                 return cell
             }
             return UITableViewCell()
@@ -108,14 +103,21 @@ extension ProfileViewController: UITableViewDataSource {
 }
 
 extension ProfileViewController: ProfilePresenterProtocol {
-    
-    func success() {
-        
+    func userSuccess() {
         stopSpinner()
         userTableView.reloadData()
     }
     
-    func failure() {
+    func userFailure(_ error: Error) {
+        stopSpinner()
+    }
+    
+    func imageSuccess() {
+        stopSpinner()
+        userTableView.reloadData()
+    }
+    
+    func imageFailure(_ error: Error) {
         stopSpinner()
     }
     

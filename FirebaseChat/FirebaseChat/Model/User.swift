@@ -15,7 +15,7 @@ struct User {
 
     var safeEmail: String {
         var safeEmail = email.replacingOccurrences(of: ".", with: "-")
-        safeEmail.replacingOccurrences(of: "@", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
     
