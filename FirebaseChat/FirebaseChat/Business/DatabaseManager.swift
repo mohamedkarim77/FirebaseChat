@@ -26,17 +26,12 @@ extension DatabaseManager{
             "first_name": user.firstName,
             "last_name": user.lastName
         ], withCompletionBlock: { [weak self] error, _ in
-
-            guard let strongSelf = self else {
-                return
-            }
-
+            guard let strongSelf = self else { return }
             guard error == nil else {
-                print("failed ot write to database")
+                print("failed to write to database")
                 completion(false)
                 return
             }
-
             strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String: String]] {
                     // append to user dictionary
@@ -45,13 +40,12 @@ extension DatabaseManager{
                         "email": user.safeEmail
                     ]
                     usersCollection.append(newElement)
-
+                    
                     strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
                         }
-
                         completion(true)
                     })
                 }
@@ -63,13 +57,12 @@ extension DatabaseManager{
                             "email": user.safeEmail
                         ]
                     ]
-
+                    
                     strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
                         }
-
                         completion(true)
                     })
                 }

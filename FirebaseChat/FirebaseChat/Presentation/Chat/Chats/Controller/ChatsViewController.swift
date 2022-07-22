@@ -22,7 +22,24 @@ class ChatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Chats"
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
         
+        navigationItem.rightBarButtonItems = [createAddNavigationBar()]
+    }
+    
+    func createAddNavigationBar() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
+        return button
+    }
+    
+    @objc
+    func addTapped() {
+        let searchVC = SearchViewController()
+        //present(searchVC, animated: true, completion: nil)
+        navigationController?.pushViewController(searchVC, animated: true)
     }
     
 }
@@ -40,7 +57,7 @@ extension ChatsViewController: UITableViewDataSource {
         }
         return UITableViewCell()
     }
-  
+    
 }
 
 extension ChatsViewController: UITableViewDelegate {
@@ -52,6 +69,6 @@ extension ChatsViewController: UITableViewDelegate {
         let conversationVC = ConversationViewController()
         navigationController?.pushViewController(conversationVC, animated: true)
     }
-   
+    
 }
 
