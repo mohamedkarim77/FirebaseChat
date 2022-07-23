@@ -29,13 +29,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EEd-YV-PDv">
-                                    <rect key="frame" x="138.5" y="80" width="137" height="136.5"/>
+                                    <rect key="frame" x="132" y="80" width="150" height="150"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="150" id="Aue-nd-SOm"/>
                                         <constraint firstAttribute="width" secondItem="EEd-YV-PDv" secondAttribute="height" multiplier="1:1" id="qew-iU-IRZ"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DeK-GX-gbt">
-                                    <rect key="frame" x="20" y="296.5" width="374" height="190"/>
+                                    <rect key="frame" x="20" y="310" width="374" height="190"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6J6-hf-HxF">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -65,7 +66,6 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="EEd-YV-PDv" firstAttribute="centerX" secondItem="vWI-e7-3bG" secondAttribute="centerX" id="1DT-G3-gGl"/>
-                                <constraint firstItem="EEd-YV-PDv" firstAttribute="width" secondItem="vWI-e7-3bG" secondAttribute="width" multiplier="0.33" id="7Sn-U4-9MD"/>
                                 <constraint firstItem="DeK-GX-gbt" firstAttribute="top" secondItem="EEd-YV-PDv" secondAttribute="bottom" constant="80" id="Zwp-vD-Jps"/>
                                 <constraint firstItem="DeK-GX-gbt" firstAttribute="leading" secondItem="vWI-e7-3bG" secondAttribute="leading" constant="20" id="dQr-Sf-GZe"/>
                                 <constraint firstItem="EEd-YV-PDv" firstAttribute="top" secondItem="vWI-e7-3bG" secondAttribute="top" constant="80" id="oWn-ff-P3B"/>

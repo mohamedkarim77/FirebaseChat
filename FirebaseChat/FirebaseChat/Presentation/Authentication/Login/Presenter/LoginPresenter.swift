@@ -25,6 +25,7 @@ class LoginPresenter {
                 self.delegate?.loginFailure(error: error!)
                 return}
             let user = result.user
+            UserDefaults.standard.setValue(email, forKey: "EMAIL")
             self.delegate?.loginSuccess()
             print("Succeful login: \(user)")
         }
