@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate {
         passwordTextField.setupTextField()
         registerButton.setupButton(title: "Register")
         imageView.addCircleCornerRadius()
-        imageView.image = UIImage(named: "sukkar")
+        imageView.image = UIImage(named: "logo")
         let tap = UITapGestureRecognizer(target: self, action: #selector(addImage))
         imageView.addGestureRecognizer(tap)
     }

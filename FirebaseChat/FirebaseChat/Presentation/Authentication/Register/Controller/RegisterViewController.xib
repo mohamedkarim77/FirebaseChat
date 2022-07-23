@@ -25,13 +25,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-ek-Qcx">
-                    <rect key="frame" x="138.5" y="124" width="137" height="136.5"/>
+                    <rect key="frame" x="132" y="124" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="UwX-ek-Qcx" secondAttribute="height" multiplier="1:1" id="8Pm-ug-6xS"/>
+                        <constraint firstAttribute="width" constant="150" id="K7O-UJ-sdU"/>
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="e1F-me-NIS">
-                    <rect key="frame" x="20" y="340.5" width="374" height="330"/>
+                    <rect key="frame" x="20" y="354" width="374" height="330"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4f-P7-bJA">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -72,7 +73,6 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="e1F-me-NIS" firstAttribute="top" secondItem="UwX-ek-Qcx" secondAttribute="bottom" constant="80" id="37W-AY-0Ba"/>
-                <constraint firstItem="UwX-ek-Qcx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.33" id="6Kz-Q8-Cho"/>
                 <constraint firstItem="UwX-ek-Qcx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="AZN-pA-pKO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e1F-me-NIS" secondAttribute="trailing" constant="20" id="Sf3-9x-NgH"/>
                 <constraint firstItem="e1F-me-NIS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="auU-tg-eKf"/>

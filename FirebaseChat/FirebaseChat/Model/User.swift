@@ -25,11 +25,4 @@ struct User {
         return image
     }
 
-//    enum CodingKeys: String, CodingKey {
-//        case email
-//        case firstName = "first_name"
-//        case lastName = "last_name"
-//        case phone
-//        case id
-//    }
 }

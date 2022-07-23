@@ -87,6 +87,7 @@ extension ProfileViewController: UITableViewDataSource {
         let ok = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
             do {
                 try FirebaseAuth.Auth.auth().signOut()
+                UserDefaults.standard.setValue("", forKey: "EMAIL")
                 let scene = self?.view.window?.windowScene?.delegate as? SceneDelegate
                 let loginVC = LoginViewController()
                 let navigation = UINavigationController(rootViewController: loginVC)

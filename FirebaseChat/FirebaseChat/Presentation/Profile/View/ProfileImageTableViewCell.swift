@@ -13,6 +13,7 @@ class ProfileImageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        profileImageView.image = UIImage(named: "logo")
         profileImageView?.addCircleCornerRadius()
     }
 

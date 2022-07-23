@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         passwordTextField.setupTextField()
         loginButton.setupButton(title: "Login")
         imageView.image = UIImage(named: "logo")
+        imageView.addCircleCornerRadius()
         
     }
     
