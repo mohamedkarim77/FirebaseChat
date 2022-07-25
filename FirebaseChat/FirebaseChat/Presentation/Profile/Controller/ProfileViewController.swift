@@ -25,7 +25,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         presenter.delegate = self
         startSpinner()
-        presenter.getImage()
+        presenter.getUserProfileImage()
+        presenter.getUserData()
         title = "Profile"
     }
     
@@ -61,9 +62,15 @@ extension ProfileViewController: UITableViewDataSource {
                 return cell
             }
             return UITableViewCell()
-        case 1,2:
+        case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.userDataCellID, for: indexPath) as? UserDataTableViewCell {
-                cell.userEmail =  presenter.userEmail ?? "xxxx"
+                cell.userDataLabel.text = "Name : \(presenter.userName ?? "")"
+                return cell
+            }
+            return UITableViewCell()
+        case 2:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.userDataCellID, for: indexPath) as? UserDataTableViewCell {
+                cell.userDataLabel.text = "Email : \(presenter.userEmail ?? "")"
                 return cell
             }
             return UITableViewCell()

@@ -9,6 +9,7 @@ target 'FirebaseChat' do
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
   pod 'MessageKit'
+  pod 'FirebaseAuth'
 
   target 'FirebaseChatTests' do
     inherit! :search_paths
