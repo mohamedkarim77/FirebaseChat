@@ -23,28 +23,43 @@ class ProfilePresenter {
     let userDataCellID = "UserDataTableViewCell"
     let logoutCellID = "LogOutTableViewCell"
     var userEmail: String?
+    var userName: String?
     var profileImageUrl: String?
     var profileImageData = Data()
  
-//    func getUser(){
-//        guard let  userEmail = FirebaseAuth.Auth.auth().currentUser?.email,
-//              !userEmail.isEmpty, let profileImageUrl = UserDefaults.standard.string(forKey: "PROFILE_IMAGE_URL") else {
-//            print(self.userEmail ?? "")
-//            delegate?.userFailure()
-//            return
-//        }
-//        self.profileImageUrl = profileImageUrl
-//        self.userEmail = userEmail
-//        print(self.userEmail ?? "")
-//        delegate?.userSuccess()
-//    }
+    public func getUserData(){
+         guard let userDefaultsEmail = UserDefaults.standard.value(forKey: "EMAIL") as? String else {
+             return
+         }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: userDefaultsEmail)
+        DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let usersCollection):
+                let user: [SearchResult] = usersCollection.filter({
+                    guard let email = $0["email"], email == safeEmail else { return false }
+                    guard let _ = $0["name"] else { return false }
+                    return true
+                }).compactMap({
+                    guard let email = $0["email"], let name = $0["name"] else { return nil }
+                    return SearchResult(name: name, email: email)
+                })
+                self.userName = user.first?.name
+                self.delegate?.userSuccess()
+            case .failure(let error):
+                print("Failed to get usres: \(error)")
+                self.delegate?.userFailure(error)
+            }
+          }
+        )
+    }
     
-    func getImage() {
+    func getUserProfileImage() {
+     
         guard let email = UserDefaults.standard.value(forKey: "EMAIL") as? String else {
             return 
         }
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-        print(safeEmail)
         let filename = safeEmail + "_profile_image.png"
         let path = "images/"+filename
         let storageManager = StorageManager.shared
@@ -56,12 +71,13 @@ class ProfilePresenter {
                         self?.delegate?.imageFailure(error!)
                         return
                     }
+                    
                     DispatchQueue.main.async {
-                        print("self.profileImageData?.isEmpty \(String(describing: self.profileImageData.isEmpty))")
+                        print("profileImageData: \(String(describing: self.profileImageData.isEmpty))")
+                        self.userEmail = email
                         self.profileImageData = data
                         self.delegate?.imageSuccess()
                     }
-                  
                 }).resume()
             case .failure(let error):
                 self.delegate?.imageFailure(error)
