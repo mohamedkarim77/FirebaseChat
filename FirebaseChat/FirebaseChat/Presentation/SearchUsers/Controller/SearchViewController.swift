@@ -61,7 +61,19 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        createNewConversation(result: presenter.searchResults[indexPath.row])
+    }
+    
+    private func createNewConversation(result: SearchResult){
+        self.navigationController?.popViewController(animated: true)
+        let conversationVC = ConversationViewController(email: result.email)
+        conversationVC.title = result.name
+        navigationController?.pushViewController(conversationVC, animated: true)
+       
     }
 }
 

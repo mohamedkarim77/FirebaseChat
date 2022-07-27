@@ -52,7 +52,6 @@ extension ChatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellID, for: indexPath) as? ChatsTableViewCell {
-            
             return cell
         }
         return UITableViewCell()
@@ -66,8 +65,7 @@ extension ChatsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let conversationVC = ConversationViewController()
-        navigationController?.pushViewController(conversationVC, animated: true)
+        
     }
     
 }

@@ -82,7 +82,7 @@ extension DatabaseManager{
         })
     }
     
- 
+    
     
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
@@ -90,11 +90,11 @@ extension DatabaseManager{
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
-
+            
             completion(.success(value))
         })
     }
-
+    
     public enum DatabaseError: Error {
         case failedToFetch
         public var localizedDescription: String {
@@ -104,7 +104,159 @@ extension DatabaseManager{
             }
         }
     }
+    
+}
 
+extension DatabaseManager {
+    
+    public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+        guard let currentEmail = UserDefaults.standard.string(forKey: "EMAIL") else { return }
+        
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
+        
+        let ref = database.child("\(safeEmail)")
+        
+        ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard var userNode = snapshot.value as? [String: Any] else {
+                completion(false)
+                print("user not found")
+                return
+            }
+            let messageDate = firstMessage.sentDate
+            let dateString = ConversationViewController.dateFormatter.string(from: messageDate)
+            var message = ""
+            switch firstMessage.kind {
+            case .text(let messageText):
+                message = messageText
+            case .attributedText(_):
+                break
+            case .photo(_):
+                break
+            case .video(_):
+                break
+            case .location(_):
+                break
+            case .emoji(_):
+                break
+            case .audio(_):
+                break
+            case .contact(_):
+                break
+            case .linkPreview(_):
+                break
+            case .custom(_):
+                break
+            }
+            let conversationId = "conversation_\(firstMessage.messageId)"
+            
+            let newConversation: [String: Any] = [
+                "id": conversationId,
+                "other_user_email": otherUserEmail,
+                "name": name,
+                "latest_message": [
+                    "date": dateString,
+                    "message": message,
+                    "is_read": false
+                ]
+            ]
+            
+            
+            if var conversations = userNode["conversations"] as? [[String: Any]]{
+                conversations.append(newConversation)
+                userNode["conversations"] = conversations
+                ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                    guard let self = self else { return }
+                    guard  error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self.finishCreatingConversation(conversationId: conversationId, firstMessage: firstMessage, completion: completion)                })
+            } else {
+                userNode["conversations"] = [
+                    newConversation
+                ]
+                ref.setValue(userNode,withCompletionBlock:  { [weak self] error, _ in
+                    guard let self = self else { return }
+                    guard  error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self.finishCreatingConversation(conversationId: conversationId, firstMessage: firstMessage, completion: completion)
+                }
+                )
+            }
+        })
+    }
+    
+    public func finishCreatingConversation(conversationId: String, firstMessage: Message, completion: @escaping (Bool) -> Void){
+        var message = ""
+        switch firstMessage.kind {
+        case .text(let messageText):
+            message = messageText
+        case .attributedText(_):
+            break
+        case .photo(_):
+            break
+        case .video(_):
+            break
+        case .location(_):
+            break
+        case .emoji(_):
+            break
+        case .audio(_):
+            break
+        case .contact(_):
+            break
+        case .linkPreview(_):
+            break
+        case .custom(_):
+            break
+        }
+        
+        let messageDate = firstMessage.sentDate
+        let dateString = ConversationViewController.dateFormatter.string(from: messageDate)
+        
+        guard let currentUserEmail = UserDefaults.standard.string(forKey: "EMAIL") else {
+            completion(false)
+            return }
+        
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
+        
+        let collectionMessage: [String: Any] = [
+            
+            "id": firstMessage.messageId,
+            "type": firstMessage.kind.messageKindString,
+            "content": message,
+            "date": dateString,
+            "sender_email": safeEmail,
+            "is_Read": false,
+            
+        ]
+        
+        let value: [String: Any] = ["messages" :[
+            collectionMessage
+        ]]
+        
+        database.child("\(conversationId)").setValue(value, withCompletionBlock: { error, _ in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        })
+    }
+    
+    public func getAllConversations(for email: String, completion: @escaping (Result<String,Error>) -> Void) {
+        
+    }
+    
+    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<String, Error>) -> Void){
+        
+    }
+    
+    public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void){
+        
+    }
 }
 
 

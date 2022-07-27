@@ -14,4 +14,6 @@ protocol ChatsPresenterProtocol: AnyObject {
 class ChatsPresenter {
     
     let cellID = "ChatsTableViewCell"
+    
+    
 }
