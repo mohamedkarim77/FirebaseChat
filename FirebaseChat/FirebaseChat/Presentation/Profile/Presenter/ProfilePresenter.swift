@@ -71,7 +71,6 @@ class ProfilePresenter {
                         self?.delegate?.imageFailure(error!)
                         return
                     }
-                    
                     DispatchQueue.main.async {
                         print("profileImageData: \(String(describing: self.profileImageData.isEmpty))")
                         self.userEmail = email

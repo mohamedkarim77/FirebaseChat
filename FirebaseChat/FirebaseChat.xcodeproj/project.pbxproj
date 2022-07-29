@@ -67,6 +67,7 @@
 		8A8C196028887AD9006C791A /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C195E28887AD9006C791A /* SearchTableViewCell.xib */; };
 		8AA52E5C288401F3002F713C /* ProfileImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA52E5A288401F3002F713C /* ProfileImageTableViewCell.swift */; };
 		8AA52E5D288401F3002F713C /* ProfileImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA52E5B288401F3002F713C /* ProfileImageTableViewCell.xib */; };
+		8AC363482892D55200697ED0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC363472892D55100697ED0 /* Chat.swift */; };
 		8AD8BCF1288D71C700B0CEAB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8AD8BCF0288D71C700B0CEAB /* FirebaseAnalytics */; };
 		8AD8BCF3288D71C700B0CEAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8AD8BCF2288D71C700B0CEAB /* FirebaseAuth */; };
 		8AD8BCF5288D71C700B0CEAB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8AD8BCF4288D71C700B0CEAB /* FirebaseDatabase */; };
@@ -152,6 +153,7 @@
 		8A8C195E28887AD9006C791A /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		8AA52E5A288401F3002F713C /* ProfileImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageTableViewCell.swift; sourceTree = "<group>"; };
 		8AA52E5B288401F3002F713C /* ProfileImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageTableViewCell.xib; sourceTree = "<group>"; };
+		8AC363472892D55100697ED0 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		A84F09A1F6F4E6F1617C1A4C /* Pods-FirebaseChat-FirebaseChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseChat-FirebaseChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseChat-FirebaseChatUITests/Pods-FirebaseChat-FirebaseChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8E3C1AC811D8DA43884C6DE /* Pods_FirebaseChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCCEEE5DEED9BC2522D8871 /* Pods_FirebaseChat_FirebaseChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseChat_FirebaseChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +342,7 @@
 				8A6A9A2B2881BAE600050FA9 /* User.swift */,
 				8A014B962887218600CB5C3A /* Message.swift */,
 				8A4F59A2288AB093008917FB /* SearchResult.swift */,
+				8AC363472892D55100697ED0 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -857,6 +860,7 @@
 				8A82C5F42880333E00847DD2 /* UIImageView+Extensions.swift in Sources */,
 				8A6A9A2C2881BAE600050FA9 /* User.swift in Sources */,
 				8A82C61E2881695C00847DD2 /* LoginPresenter.swift in Sources */,
+				8AC363482892D55200697ED0 /* Chat.swift in Sources */,
 				8A82C59A2880237300847DD2 /* FirebaseChat.xcdatamodeld in Sources */,
 				8A6A9A322881EA5600050FA9 /* ChatsPresenter.swift in Sources */,
 				8A82C60328807B9500847DD2 /* UIView+Extension.swift in Sources */,

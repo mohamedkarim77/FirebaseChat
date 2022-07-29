@@ -18,4 +18,19 @@ class ChatsTableViewCell: UITableViewCell {
         userImageView.addCircleCornerRadius()
     }
     
+   var imageurl: URL? {
+       didSet {
+           if let url = imageurl {
+               userImageView.loadImage(url)
+           }
+       }
+    }
+    
+    var chatModel: Chat! {
+        didSet {
+            nameLabel.text = chatModel.name
+            messageLabel.text = chatModel.latestMessage.text
+        }
+    }
+    
 }

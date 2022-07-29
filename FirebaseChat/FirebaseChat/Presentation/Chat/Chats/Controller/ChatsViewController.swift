@@ -19,14 +19,21 @@ class ChatsViewController: UIViewController {
     
     private let presenter = ChatsPresenter()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Chats"
+        presenter.delegate = self
+        presenter.startListeningForChats()
+        startSpinner()
         setupNavigationBar()
     }
     
     func setupNavigationBar() {
-        
         navigationItem.rightBarButtonItems = [createAddNavigationBar()]
     }
     
@@ -47,11 +54,16 @@ class ChatsViewController: UIViewController {
 extension ChatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return presenter.chats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellID, for: indexPath) as? ChatsTableViewCell {
+            presenter.getUserProfileImage(index: indexPath.row) { url in
+                cell.imageurl = url
+              
+            }
+            cell.chatModel = presenter.chats[indexPath.row]
             return cell
         }
         return UITableViewCell()
@@ -60,12 +72,34 @@ extension ChatsViewController: UITableViewDataSource {
 }
 
 extension ChatsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+}
+
+extension ChatsViewController: ChatsPresenterProtocol {
+    
+//    func imageSuccess() {
+//        stopSpinner()
+//        chatsTableView.reloadData()
+//    }
+//
+//    func imageFailure(_ error: Error) {
+//        stopSpinner()
+//    }
+    
+    func chatSuccess() {
+        stopSpinner()
+        chatsTableView.reloadData()
+    }
+    
+    func chatFailure(_ error: Error) {
+        stopSpinner()
     }
     
 }
